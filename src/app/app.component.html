@@ -1,9 +1,7 @@
 <mat-toolbar class="header">
-    <h1>News Site</h1>
-    <span class="fill-remaining-space"></span>
-  <button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
-  <mat-menu #menu="matMenu" class="header-menu">
-    <button mat-menu-item>Home</button>
-    <button mat-menu-item>News</button>
-  </mat-menu>
+<mat-toolbar-row>
+  <h1 class="header-title">News Site</h1>
+  <button mat-button>Home</button>
+  <button mat-button>News</button>
+</mat-toolbar-row>
 </mat-toolbar>

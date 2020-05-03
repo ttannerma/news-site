@@ -5,7 +5,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .header {
     display: flex;
 }
-
+.header-title {
+    padding: 0 2rem 0 0;
+}
 .fill-remaining-space {
     flex: 1 1 auto;
 }
