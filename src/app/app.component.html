@@ -1,7 +1,11 @@
 <mat-toolbar class="header">
-<mat-toolbar-row>
-  <h1 class="header-title">News Site</h1>
-  <button mat-button [routerLink]="['/']">Home</button>
-  <button mat-button [routerLink]="['/news']">News</button>
-</mat-toolbar-row>
+  <mat-toolbar-row>
+    <h1 class="header-title">News Site</h1>
+    <button mat-button [routerLink]="['/']">Home</button>
+    <button mat-button [routerLink]="['/news']">News</button>
+  </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-card>
+  <router-outlet></router-outlet>
+</mat-card>
