@@ -38,7 +38,7 @@ import { FormsModule } from '@angular/forms'
     MatInputModule,
     AppRoutes,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [NewsService],
   bootstrap: [AppComponent]

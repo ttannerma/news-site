@@ -5,11 +5,16 @@
         <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="news-search-form">
             <mat-form-field >
               <mat-label>News source name</mat-label>
-              <input matInput placeholder="NY Times" value="" name="sourceName" ngModel>
+              <input
+              matInput
+              placeholder="cnn, bloomberg etc."
+              value=""
+              name="sourceName"
+              ngModel>
             </mat-form-field>
             <mat-form-field>
               <mat-label>Language</mat-label>
-              <input matInput placeholder="English" name="language" ngModel>
+              <input matInput placeholder="en, fi etc." name="language" ngModel>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Keyword</mat-label>
