@@ -2,19 +2,20 @@
     <mat-card>
         <mat-card-title>Welcome to News Site!</mat-card-title>
         <mat-card-subtitle>Here you can search latest news from all over the world. To get started you can search for news by:</mat-card-subtitle>
-        <form class="news-search-form">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="news-search-form">
             <mat-form-field >
               <mat-label>News source name</mat-label>
-              <input matInput placeholder="NY Times" value="">
+              <input matInput placeholder="NY Times" value="" name="sourceName" ngModel>
             </mat-form-field>
             <mat-form-field>
               <mat-label>Language</mat-label>
-              <textarea matInput placeholder="English"></textarea>
+              <input matInput placeholder="English" name="language" ngModel>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Keyword</mat-label>
-                <textarea matInput placeholder="Coronavirus"></textarea>
+                <input matInput placeholder="Coronavirus" name="keyword" ngModel>
               </mat-form-field>
+            <button mat-button type="submit">Search</button>
           </form>
     </mat-card>
 </div>

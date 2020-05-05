@@ -12,6 +12,7 @@ export class NewsComponent implements OnInit {
   articles: Array<any>
   constructor(private newsService : NewsService) { }
 
+  // Display default news articles in ngOnInit()
   ngOnInit(): void {
     this.newsService.getDefaultNews().subscribe(data => this.articles = data['articles'])
   }
