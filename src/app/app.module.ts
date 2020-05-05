@@ -9,6 +9,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 import { NewsService } from './services/news.service';
 import { NewsComponent } from './components/news/news.component';
 import { HomeComponent } from './components/home/home.component';
@@ -31,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http'
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatListModule,
+    MatInputModule,
     AppRoutes,
     HttpClientModule
   ],

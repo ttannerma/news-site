@@ -10,3 +10,8 @@ mat-card {
 mat-card-title {
     padding-bottom: 1.5rem;
 }
+
+.news-search-form {
+    display: flex;
+    flex-direction: column;
+}
