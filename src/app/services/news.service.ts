@@ -35,7 +35,7 @@ export class NewsService {
     const keyword = !!encodeURI(params['keyword']) ? encodeURI(params['keyword']) : ""
     const source = !!encodeURI(params['sourceName']) ? encodeURI(params['sourceName']) : ""
     const language = !!encodeURI(params['language']) ? encodeURI(params['language']) : ""
-    const url = `http://newsapi.org/v2/everything?q=${keyword}&sources=${source}&language=${language}&apiKey=3154cefaf49641c891596f9d9d66dbe9`
+    const url = `https://newsapi.org/v2/everything?q=${keyword}&sources=${source}&language=${language}&apiKey=3154cefaf49641c891596f9d9d66dbe9`
 
     // If no params are given, then get default news
     if(keyword.length == 0 && source.length == 0 && keyword.length == 0) {
