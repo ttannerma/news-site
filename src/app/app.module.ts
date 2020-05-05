@@ -13,6 +13,7 @@ import { NewsService } from './services/news.service';
 import { NewsComponent } from './components/news/news.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutes } from './app.routes'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AppRoutes } from './app.routes'
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    AppRoutes
+    AppRoutes,
+    HttpClientModule
   ],
   providers: [NewsService],
   bootstrap: [AppComponent]

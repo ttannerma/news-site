@@ -1,0 +1,10 @@
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card {
+    max-width: 60%;
+    margin: 1rem 20% 0 20%;
+    padding: 3rem;
+}

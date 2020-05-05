@@ -1,0 +1,12 @@
+.landing-page-container {
+    display: flex;
+}
+
+mat-card {
+    max-width: 40%;
+    margin: 0 30% 0 30%;
+}
+
+mat-card-title {
+    padding-bottom: 1.5rem;
+}
