@@ -1,12 +1,12 @@
-<div class="landing-page-container">
+<div class="landing-page-container" *ngIf="isDataLoaded">
     <mat-card>
         <mat-card-title>Welcome to News Site!</mat-card-title>
         <mat-card-subtitle>Here you can search latest news from all over the world. To get started you can search for news by:</mat-card-subtitle>
         <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="news-search-form">
             <mat-form-field >
               <mat-label>News source name</mat-label>
-              <mat-select>
-                <mat-option *ngFor="let source of sources" [value]="source.value">
+              <mat-select (selectionChange)="handleSourceNamePick($event.value)">
+                <mat-option *ngFor="let source of sources"  [value]="source.id" name="sourceName">
                   {{source.name}}
                 </mat-option>
               </mat-select>
@@ -23,11 +23,15 @@
             </mat-form-field>
             <mat-form-field>
               <mat-label>Language</mat-label>
-              <input matInput placeholder="en, fi etc." name="language" ngModel>
+              <mat-select (selectionChange)="handleLanguagePick($event.value)">
+                <mat-option *ngFor="let language of languages | keyvalue" [value]="language.key" name="language" >
+                  {{language.value}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Keyword</mat-label>
-                <input matInput placeholder="Coronavirus" name="keyword" ngModel>
+                <input matInput (keyup)="onKeywordInput($event)" placeholder="Coronavirus" name="keyword">
               </mat-form-field>
             <button mat-button type="submit">Search</button>
           </form>
