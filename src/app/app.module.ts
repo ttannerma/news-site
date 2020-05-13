@@ -17,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutes } from './app.routes'
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms'
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FormsModule } from '@angular/forms'
     AppRoutes,
     HttpClientModule,
     FormsModule,
+    MatSelectModule
   ],
   providers: [NewsService],
   bootstrap: [AppComponent]

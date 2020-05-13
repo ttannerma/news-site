@@ -29,6 +29,11 @@ export class NewsService {
     return this.queryData
   }
 
+  getNewsSources() {
+    const results = this.http.get('https://newsapi.org/v2/sources?apiKey=' + this.newsApiKey)
+    return results
+  }
+
   // Creates url based on users parameters
   createUrlBasedOnParams() {
     const params = this.getQueryData()
