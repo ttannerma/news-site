@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   sources: Object
   newsSource
-  isDataLoaded: boolean;
+  isDataLoaded: boolean = false;
 
   // List of possible languages
   languages = {
@@ -31,15 +31,14 @@ export class HomeComponent implements OnInit {
     zh: 'Chinese'
   }
 
+  // Default queryObject for user's query
   queryObject = {
     keyword: '',
     sourceName: '',
     language: ''
   }
 
-  constructor(private newsService : NewsService, private router: Router) {
-    this.isDataLoaded = false
-  }
+  constructor(private newsService : NewsService, private router: Router) { }
 
   ngOnInit(): void { 
     this.getSources()
@@ -51,6 +50,8 @@ export class HomeComponent implements OnInit {
     if (this.newsService.getNewsSourcesList().length === 0) {
         // save result
         this.newsSource = await this.newsService.getNewsSources()
+
+        // Angular uses Rx.js Observables instead of promises for dealing with HTTP. Convert this Observable from http.get to Promise using toPromise()
         .toPromise()
         .then((resp) => {
           this.sources = resp['sources']
@@ -60,6 +61,7 @@ export class HomeComponent implements OnInit {
         });
     }
 
+    // Return the already fetched news source list from service
     this.isDataLoaded = true;
     return this.newsService.getNewsSourcesList();
   }
