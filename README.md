@@ -1,27 +1,26 @@
-# NewsSite
+# news-site
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+A site which user can use to search news. Powered by NewsAPI. User can search for news with keywords, source name (eg. NY Times), language and the news are displayed on page.
+
+# Getting started
+
+## Clone the repo 
+`git clone https://github.com/ttannerma/news-site.git`
+<br>
+`cd news-site`
+
+## Installing packages
+run `npm install` or `yarn` to install packages
 
 ## Development server
+If you wish to run the application, install angular cli `npm install -g @angular/cli`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` in root folder for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# Built with
+* [Angular CLI](https://cli.angular.io/) - Used to generate angular app, components etc.
+* [NewsAPI](https://newsapi.org/) - a simple and easy-to-use API that returns JSON metadata for headlines and articles live all over the web right now.
+* [Angular Material](https://material.angular.io/) - modern UI components that work across the web, mobile, and desktop.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Author
+* **Teemu Tannerma** - [github](https://github.com/ttannerma)
