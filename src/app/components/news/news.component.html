@@ -1,8 +1,9 @@
-<div class="cardContainer">
+
+<div class="cardContainer" *ngIf="showArticles">
+        <p>Showing results: </p>
     <div *ngFor="let article of articles">
         <mat-card>
             <mat-card-header>
-                
                     <mat-card-title>{{article.title}}</mat-card-title>
                     <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>
             </mat-card-header>
@@ -12,4 +13,12 @@
             </mat-card-content>
         </mat-card>
     </div>
+</div>
+<div *ngIf="showError">
+    <h3 > No news found when searching:</h3>
+    <ul>
+        <li>News source: {{latestQuery.sourceName}}</li>
+        <li>Language: {{latestQuery.language}}</li>
+        <li>Keyword: {{latestQuery.keyword}}</li>
+    </ul>
 </div>

@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.cardContainer p {
+    text-align: left;
+}
+
 mat-card {
     max-width: 60%;
     margin: 1rem 20% 0 20%;

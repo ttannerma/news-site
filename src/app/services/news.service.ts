@@ -13,7 +13,6 @@ export class NewsService {
   constructor(private http: HttpClient) {}
 
    // Gets default top headlines for U.S.
-   // News api must be used with a query, such as sources, q (query), language, country, category
    getDefaultNews() {
     const results = this.http.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=' + this.newsApiKey)
     return results
