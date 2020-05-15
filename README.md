@@ -6,6 +6,7 @@ A site which user can use to search news. Powered by NewsAPI. User can search fo
 
 ## Clone the repo 
 `git clone https://github.com/ttannerma/news-site.git`
+<br>
 `cd news-site`
 
 ## Installing packages
