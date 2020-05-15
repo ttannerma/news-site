@@ -46,19 +46,22 @@ export class HomeComponent implements OnInit {
   }
 
   async getSources() : Promise<Object> {
-    if (typeof this.newsSource === 'undefined') 
-    {
+
+    // If newsSources are not set then fetch list of available news sources
+    if (this.newsService.getNewsSourcesList().length === 0) {
         // save result
         this.newsSource = await this.newsService.getNewsSources()
         .toPromise()
         .then((resp) => {
           this.sources = resp['sources']
+          this.newsService.setNewsSourcesList(resp['sources'])
           this.isDataLoaded = true;
           return resp['sources']
         });
     }
+
     this.isDataLoaded = true;
-    return this.sources;
+    return this.newsService.getNewsSourcesList();
   }
 
   // event handler for sourcename pick

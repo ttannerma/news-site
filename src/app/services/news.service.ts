@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class NewsService {
   newsApiKey: string= '3154cefaf49641c891596f9d9d66dbe9'
   queryData: Object = {}
+  newsSourcesList: [] = []
 
   constructor(private http: HttpClient) {}
 
@@ -18,6 +19,13 @@ export class NewsService {
     return results
   }
 
+  setNewsSourcesList(newsSources) {
+    this.newsSourcesList = newsSources
+  }
+
+  getNewsSourcesList() {
+    return this.newsSourcesList
+  }
   // Set users query data
   setQueryData(newData) {
     this.queryData = newData
