@@ -48,9 +48,8 @@ export class HomeComponent implements OnInit {
 
     // If newsSources are not set then fetch list of available news sources
     if (this.newsService.getNewsSourcesList().length === 0) {
-        // save result
-        this.newsSource = await this.newsService.getNewsSources()
 
+        this.newsSource = await this.newsService.getNewsSources()
         // Angular uses Rx.js Observables instead of promises for dealing with HTTP. Convert this Observable from http.get to Promise using toPromise()
         .toPromise()
         .then((resp) => {
@@ -63,6 +62,7 @@ export class HomeComponent implements OnInit {
 
     // Return the already fetched news source list from service
     this.isDataLoaded = true;
+    this.sources = this.newsService.getNewsSourcesList()
     return this.newsService.getNewsSourcesList();
   }
 
