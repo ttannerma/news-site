@@ -23,4 +23,4 @@ Run `ng serve` in root folder for a dev server. Navigate to `http://localhost:42
 * [Angular Material](https://material.angular.io/) - modern UI components that work across the web, mobile, and desktop.
 
 ## Author
-* **Teemu Tannerma** - *Initial work* - [github](https://github.com/ttannerma)
+* **Teemu Tannerma** - [github](https://github.com/ttannerma)
