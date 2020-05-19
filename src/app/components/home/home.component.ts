@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   sources: Object
   isDataLoaded: boolean = false;
   displayErrorMessage: boolean = false;
+  previousQueries: Object
 
   // List of possible languages
   languages = {
@@ -42,6 +43,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void { 
     this.getSources()
+    this.previousQueries = this.newsService.getPreviousQueries()
+    console.log(this.previousQueries)
   }
 
   async getSources() : Promise<Object> {
@@ -85,6 +88,7 @@ export class HomeComponent implements OnInit {
   // On submit handler
   onSubmit(userForm) {
     this.newsService.setQueryData(this.queryObject)
+    this.newsService.updatePreviousQueryList()
     this.router.navigateByUrl('/news')
   }
 }

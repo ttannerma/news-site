@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { parse } from 'path';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,42 @@ export class NewsService {
    getDefaultNews() {
     const results = this.http.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=' + this.newsApiKey)
     return results
+  }
+
+  updatePreviousQueryList() {
+    let previousQueries = this.getPreviousQueries()
+    previousQueries.shift()
+    JSON.stringify(previousQueries.push(this.queryData))
+    this.setPreviousQueriesToLocalStorage(previousQueries)
+  }
+
+  setPreviousQueriesToLocalStorage(previousQueries) {
+    const storage = localStorage
+    for(let i = 0; i < 3; i++) {
+      storage.setItem(`news-site-query-${i}`, `{"keyword":"${previousQueries[i].keyword}","sourceName":"${previousQueries[i].sourceName}","language":"${previousQueries[i].language}"}`)
+    }
+  }
+
+  getPreviousQueries() {
+    const storage = localStorage
+    let queryArray = []
+    // localStorage.clear()
+    for(let i = 0; i < 3; i++) {
+      if(storage.getItem(`news-site-query-${i}`) != undefined) {
+        queryArray.push(storage.getItem(`news-site-query-${i}`))
+      } else {
+        queryArray.push(`{"keyword":"","sourceName":"","language":""}`)
+      }
+    }
+    return this.parseStringifiedObject(queryArray)
+  }
+
+  parseStringifiedObject(queryArray) {
+    let parsedArray = []
+    for(let i = 0; i < queryArray.length; i++) {
+      parsedArray.push(JSON.parse(queryArray[i]))
+    }
+    return parsedArray
   }
 
   setNewsSourcesList(newsSources) {
