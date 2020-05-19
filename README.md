@@ -13,6 +13,7 @@ A site which user can use to search news. Powered by NewsAPI. User can search fo
 run `npm install` to install packages
 
 ## Development server
+If you wish to run the application, install angular cli `npm install -g @angular/cli`
 
 Run `ng serve` in root folder for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
