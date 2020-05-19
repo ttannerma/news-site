@@ -11,7 +11,7 @@ export class NewsComponent implements OnInit {
   articles: Array<any>
   showArticles: boolean = true
   showError: boolean = false
-  latestQuery;
+  latestQuery: any;
   constructor(private newsService : NewsService) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class NewsComponent implements OnInit {
   }
 
   getNews() {
-    // If search parameters have been given, then create query based on params
+    // Check if user gave parameters
     if(Object.keys(this.newsService.getQueryData()).length > 0) {
       this.latestQuery = this.newsService.getQueryData()
       this.newsService.getNewsBasedOnParams().subscribe((data) => {
@@ -38,7 +38,7 @@ export class NewsComponent implements OnInit {
       // Clear querydata in service
       this.newsService.setQueryData({})
 
-      // show latest articles from U.S.
+      // show latest articles from U.S. if no params were given
     } else {
       this.newsService.getDefaultNews().subscribe(data => this.articles = data['articles'])
       this.newsService.setQueryData({})

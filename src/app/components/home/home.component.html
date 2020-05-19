@@ -33,9 +33,8 @@
     </mat-card>
     <mat-card *ngIf="isDataLoaded">
       <mat-card-title>Your previous queries: </mat-card-title>
-      <div *ngFor="let query of previousQueries; let i = index">
+      <div *ngFor="let query of previousQueries">
         <div>
-          <mat-card-content>{{i + 1}}</mat-card-content>
             <p>Source name: {{query.sourceName}}</p>
             <p>Language: {{query.language}}</p>
             <p>Keyword: {{query.keyword}}</p>
