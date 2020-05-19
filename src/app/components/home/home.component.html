@@ -1,7 +1,9 @@
-<div class="landing-page-container">
-  <mat-card *ngIf="displayErrorMessage">
+<div class="landing-page-container" *ngIf="displayErrorMessage">
+  <mat-card>
     <mat-card-title>Sorry but this service is unavailable, please try again later!</mat-card-title>
   </mat-card>
+</div>
+<div class="landing-page-container">
     <mat-card *ngIf="isDataLoaded">
         <mat-card-title>Welcome to News Site!</mat-card-title>
         <mat-card-subtitle>Here you can search latest news from all over the world. To get started you can search for news by:</mat-card-subtitle>

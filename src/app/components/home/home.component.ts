@@ -11,7 +11,6 @@ import { NewsService } from 'src/app/services/news.service';
 export class HomeComponent implements OnInit {
 
   sources: Object
-  newsSource
   isDataLoaded: boolean = false;
   displayErrorMessage: boolean = false;
 
@@ -50,8 +49,8 @@ export class HomeComponent implements OnInit {
     // If newsSources are not set then fetch list of available news sources
     if (this.newsService.getNewsSourcesList().length === 0) {
 
-        this.newsSource = await this.newsService.getNewsSources()
-        // Angular uses Rx.js Observables instead of promises for dealing with HTTP. Convert this Observable from http.get to Promise using toPromise()
+        const fetchNewsSource = await this.newsService.getNewsSources()
+        // Angular uses Rx.js Observables instead of promises for dealing with HTTP. Convert this Observable to Promise using toPromise()
         .toPromise()
         .then((resp) => {
           this.sources = resp['sources']
@@ -61,8 +60,12 @@ export class HomeComponent implements OnInit {
         }).catch((e) => {
           this.displayErrorMessage = true;
         })
+    } else {
+      // Return the already fetched news source list from service
+      this.isDataLoaded = true;
+      this.sources = this.newsService.getNewsSourcesList()
+      return this.newsService.getNewsSourcesList();
     }
-    return
   }
 
   // event handler for sourcename pick
