@@ -34,10 +34,14 @@
     <mat-card *ngIf="isDataLoaded">
       <mat-card-title>Your previous queries: </mat-card-title>
       <div *ngFor="let query of previousQueries; let i = index">
-        <mat-card-content>{{i + 1}}</mat-card-content>
-          <p>Source name: {{query.sourceName}}</p>
-          <p>Language: {{query.language}}</p>
-          <p>Keyword: {{query.keyword}}</p>
+        <div>
+          <mat-card-content>{{i + 1}}</mat-card-content>
+            <p>Source name: {{query.sourceName}}</p>
+            <p>Language: {{query.language}}</p>
+            <p>Keyword: {{query.keyword}}</p>
+            <button mat-raised-button (click)="submitPreviousQuery($event, query.sourceName, query.language, query.keyword)">Search</button>
+          </div>
+          <br>
         </div>
     </mat-card>
 </div>

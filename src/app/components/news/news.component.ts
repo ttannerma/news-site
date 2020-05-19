@@ -18,6 +18,7 @@ export class NewsComponent implements OnInit {
     this.getNews()
   }
 
+  // Direct user to article url
   goToUrl(event, article) {
     document.location.href = `${article.url}`
   }
@@ -33,6 +34,8 @@ export class NewsComponent implements OnInit {
           this.showError = true
         }
       })
+
+      // Clear querydata in service
       this.newsService.setQueryData({})
 
       // show latest articles from U.S.

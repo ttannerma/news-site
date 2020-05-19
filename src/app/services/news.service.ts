@@ -20,24 +20,23 @@ export class NewsService {
     return results
   }
 
+  // Updater method for keeping list of previous queries
   updatePreviousQueryList() {
+    const storage = localStorage
     let previousQueries = this.getPreviousQueries()
+
     previousQueries.shift()
     JSON.stringify(previousQueries.push(this.queryData))
-    this.setPreviousQueriesToLocalStorage(previousQueries)
-  }
 
-  setPreviousQueriesToLocalStorage(previousQueries) {
-    const storage = localStorage
     for(let i = 0; i < 3; i++) {
       storage.setItem(`news-site-query-${i}`, `{"keyword":"${previousQueries[i].keyword}","sourceName":"${previousQueries[i].sourceName}","language":"${previousQueries[i].language}"}`)
     }
   }
 
+  // Return stringified object from localStorage
   getPreviousQueries() {
     const storage = localStorage
     let queryArray = []
-    // localStorage.clear()
     for(let i = 0; i < 3; i++) {
       if(storage.getItem(`news-site-query-${i}`) != undefined) {
         queryArray.push(storage.getItem(`news-site-query-${i}`))
@@ -48,6 +47,7 @@ export class NewsService {
     return this.parseStringifiedObject(queryArray)
   }
 
+  // Parse the stringified object from localStorage
   parseStringifiedObject(queryArray) {
     let parsedArray = []
     for(let i = 0; i < queryArray.length; i++) {
@@ -56,13 +56,16 @@ export class NewsService {
     return parsedArray
   }
 
+  // Setter for news sources list
   setNewsSourcesList(newsSources) {
     this.newsSourcesList = newsSources
   }
 
+  // Get news sources list from service
   getNewsSourcesList() {
     return this.newsSourcesList
   }
+
   // Set users query data
   setQueryData(newData) {
     this.queryData = newData
@@ -73,6 +76,8 @@ export class NewsService {
     return this.queryData
   }
 
+
+  // Get news sources from API
   getNewsSources() {
     const results = this.http.get('https://newsapi.org/v2/sources?apiKey=' + this.newsApiKey)
     return results

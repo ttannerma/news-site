@@ -44,7 +44,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void { 
     this.getSources()
     this.previousQueries = this.newsService.getPreviousQueries()
-    console.log(this.previousQueries)
   }
 
   async getSources() : Promise<Object> {
@@ -56,6 +55,8 @@ export class HomeComponent implements OnInit {
         .toPromise()
         .then((resp) => {
           this.sources = resp['sources']
+
+          // Save results to service so app doesnt fetch it every time
           this.newsService.setNewsSourcesList(resp['sources'])
           this.isDataLoaded = true;
           return resp['sources']
@@ -87,6 +88,17 @@ export class HomeComponent implements OnInit {
 
   // On submit handler
   onSubmit(userForm) {
+    this.newsService.setQueryData(this.queryObject)
+    this.newsService.updatePreviousQueryList()
+    this.router.navigateByUrl('/news')
+  }
+
+  // Handle submit for previous query
+  submitPreviousQuery($event, src, lang, keyword) {
+    this.queryObject.sourceName = src
+    this.queryObject.language = lang
+    this.queryObject.keyword = keyword
+
     this.newsService.setQueryData(this.queryObject)
     this.newsService.updatePreviousQueryList()
     this.router.navigateByUrl('/news')
