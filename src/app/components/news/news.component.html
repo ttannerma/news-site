@@ -2,7 +2,7 @@
 <div class="cardContainer" *ngIf="showArticles">
         <p>Showing results: </p>
     <div *ngFor="let article of articles">
-        <mat-card>
+        <mat-card (click)="goToUrl($event, article)">
             <mat-card-header>
                     <mat-card-title>{{article.title}}</mat-card-title>
                     <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>

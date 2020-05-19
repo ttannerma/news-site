@@ -18,6 +18,10 @@ export class NewsComponent implements OnInit {
     this.getNews()
   }
 
+  goToUrl(event, article) {
+    document.location.href = `${article.url}`
+  }
+
   getNews() {
     // If search parameters have been given, then create query based on params
     if(Object.keys(this.newsService.getQueryData()).length > 0) {
