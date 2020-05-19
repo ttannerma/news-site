@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   sources: Object
   newsSource
   isDataLoaded: boolean = false;
+  displayErrorMessage: boolean = false;
 
   // List of possible languages
   languages = {
@@ -57,13 +58,11 @@ export class HomeComponent implements OnInit {
           this.newsService.setNewsSourcesList(resp['sources'])
           this.isDataLoaded = true;
           return resp['sources']
-        });
+        }).catch((e) => {
+          this.displayErrorMessage = true;
+        })
     }
-
-    // Return the already fetched news source list from service
-    this.isDataLoaded = true;
-    this.sources = this.newsService.getNewsSourcesList()
-    return this.newsService.getNewsSourcesList();
+    return
   }
 
   // event handler for sourcename pick
